@@ -45,8 +45,6 @@ namespace exercise2
         public double Hteh = 1500;
         //membuat variabel dengan tipe double
         public double Totalsemua;
-        //membuat variabel dengan tipe string
-        public string cetaksay;
 
         static void Main(string[] args)
         {
@@ -153,8 +151,7 @@ namespace exercise2
                         str.WriteLine("----------------------------------");
                         str.WriteLine("Total Harga");
                         pr.Totalsemua = pr.harga + pr.harga1 + pr.harga2 + pr.harga3 + pr.harga4 + pr.harga5 + pr.harga6;
-                        pr.cetaksay += pr.Totalsemua;
-                        str.WriteLine("Rp" + pr.cetaksay);
+                        str.WriteLine("Rp" + pr.Totalsemua);
                         str.WriteLine("\t-------------------------------------------");
                         str.WriteLine("\tTerima Kasih Telah Berbelanja di Toko Kami");
                         str.WriteLine("\t\tSelamat Berbelanja Kembali");
