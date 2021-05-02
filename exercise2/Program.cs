@@ -45,6 +45,8 @@ namespace exercise2
         public double Hteh = 1500;
         //membuat variabel dengan tipe double
         public double Totalsemua;
+        //membuat variabel dengan tipe string
+        public string menu;
 
         static void Main(string[] args)
         {
@@ -134,8 +136,45 @@ namespace exercise2
                         pr.harga6 = pr.Hteh * pr.totalteh;
                         break;
                     //membuat case untuk membuat nota dengan streamwriter
-                    case "8":
-                        StreamWriter str = new StreamWriter("//Users//digitaldeveloper//Documents//Exe2 PAW//" + "notaPAW" + ".txt");
+                    case "8" when pr.harga + pr.harga1 + pr.harga2 + pr.harga3 + pr.harga4 + pr.harga5 + pr.harga6 > 0: 
+                        Console.WriteLine("\t\tTOKO SEMBAKO MURAH MERIAH");
+                        Console.WriteLine("\t\twe deserve what you need");
+                        Console.WriteLine("\t\t--------------------------");
+                        Console.WriteLine("Nota Pembelian Anda");
+                        Console.WriteLine("-------------------");
+                        Console.WriteLine(pr.totalminyak + " Liter minyak goreng, dengan harga " + "Rp" + pr.harga);
+                        Console.WriteLine(pr.totalberas + " Kilogram beras, dengan harga " + "Rp" + pr.harga1);
+                        Console.WriteLine(pr.totaltelura + " Kilogram telur ayam, dengan harga " + "Rp" + pr.harga2);
+                        Console.WriteLine(pr.totaltelurb + " Kilogram telur bebek, dengan harga " + "Rp" + pr.harga3);
+                        Console.WriteLine(pr.totalmie + " Bungkus mie instan, dengan harga " + "Rp" + pr.harga4);
+                        Console.WriteLine(pr.totalkopi + " Bungkus kopi, dengan harga " + "Rp" + pr.harga5);
+                        Console.WriteLine(pr.totalteh + " Bungkus teh, dengan harga " + "Rp" + pr.harga6);
+                        Console.WriteLine("----------------------------------");
+                        Console.WriteLine("Total Harga");
+                        pr.Totalsemua = pr.harga + pr.harga1 + pr.harga2 + pr.harga3 + pr.harga4 + pr.harga5 + pr.harga6;
+                        Console.WriteLine("Rp" + pr.Totalsemua);
+                        Console.WriteLine("\t-------------------------------------------");
+                        Console.WriteLine("\tTerima Kasih Telah Berbelanja di Toko Kami");
+                        Console.WriteLine("\t\tSelamat Berbelanja Kembali");
+                        //menanyakan apakah ada tambahan item
+                        Console.WriteLine("Apakah ada tambahan lain? ");
+                        //membuat pilihan case Ya dan tekan enter untuk keluar
+                        Console.WriteLine("Ketik 'Ya' untuk mengulangi menu dan tekan 'enter' untuk mencetak nota");
+                        //memanggil variabel menu
+                        menu = Console.ReadLine();
+                        //membuat switch baru yang bisa membaca input dari user
+                        switch (menu)
+                        {
+                            case "Ya":
+                                pr.pilih = 0;
+                                break;
+
+                            case "":
+                                pr.pilih = 8;
+                                break;
+                        }
+                        //membuat streamwriter untuk pencetakan nota
+                        StreamWriter str = new StreamWriter("//Users//digitaldeveloper//Documents//091_PAW2_C//" + "notaPAW" + ".txt");
                         str.WriteLine("\t\tTOKO SEMBAKO MURAH MERIAH");
                         str.WriteLine("\t\twe deserve what you need");
                         str.WriteLine("\t\t--------------------------");
@@ -156,7 +195,7 @@ namespace exercise2
                         str.WriteLine("\tTerima Kasih Telah Berbelanja di Toko Kami");
                         str.WriteLine("\t\tSelamat Berbelanja Kembali");
                         str.Close();
-                        pr.pilih = 8;
+                        pr.menu = "8";
                         break;
                     //membuat case untuk melanjutkan pemilihan
                     case "Ya":
@@ -170,6 +209,6 @@ namespace exercise2
                 }
             }
             while (pr.pilih != 8);
-            }
         }
     }
+}
